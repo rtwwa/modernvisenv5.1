@@ -30,11 +30,16 @@ namespace modernvisenv5._1
             for (i = 0; i < 15; i++)
                 for (j = 0; j < 15; j++)
                     dataGridView1.Rows[i].Cells[j].Value =
-                    a[i, j].ToString();
+                        a[i, j].ToString();
 
-            int m = int.MinValue;
+            int m = int.MaxValue;
             for (i = 0; i < 15; i++)
-                if (a[i, 14 - i] > m) m = a[i, 14 - i];
+            {
+                if (a[i, 14 - i] < m)
+                {
+                    m = a[i, 14 - i];
+                }
+            }
             textBox1.Text = Convert.ToString(m);
         }
     }
